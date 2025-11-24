@@ -205,7 +205,7 @@
       overflow: hidden;
     }
 
-    /* Новое масштабирование для изображений */
+    /* Масштабирование для изображений */
     img.photo {
       width: 100%;
       height: auto;
@@ -216,12 +216,24 @@
       display: block;
     }
 
-    /* Новое масштабирование для видео */
+    /* Масштабирование для первого видео */
     video.clip {
       width: 100%;
       height: auto;
       max-height: 70vh;
       object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid var(--accent);
+      display: block;
+      background: #000;
+    }
+
+    /* Увеличенное масштабирование для второго видео */
+    video.clip.large {
+      width: 100%;
+      height: auto;
+      max-height: 80vh;
+      object-fit: contain;
       border-radius: 16px;
       border: 4px solid var(--accent);
       display: block;
@@ -406,6 +418,12 @@
       .media-container {
         min-height: 300px;
       }
+      
+      /* На мобильных уменьшаем масштаб второго видео */
+      video.clip.large {
+        max-height: 70vh;
+        object-fit: cover;
+      }
     }
 
     /* Улучшения для очень больших экранов */
@@ -416,6 +434,11 @@
       
       .panel {
         max-width: 1400px;
+      }
+      
+      /* На больших экранах увеличиваем второе видео ещё больше */
+      video.clip.large {
+        max-height: 85vh;
       }
     }
   </style>
@@ -536,7 +559,7 @@
       <div class="media-loading" id="loading-video-2">
         <div class="spinner"></div>
       </div>
-      <video class="clip" controls preload="metadata" playsinline data-src="2.mp4">
+      <video class="clip large" controls preload="metadata" playsinline data-src="2.mp4">
         Ваш браузер не поддерживает видео тег.
       </video>
     </div>
