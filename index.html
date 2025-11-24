@@ -382,21 +382,6 @@
       background: #c84bff;
     }
 
-    /* Мобильная диагностика */
-    .mobile-debug {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background: rgba(230, 57, 70, 0.9);
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      z-index: 10000;
-      max-width: 200px;
-      display: none;
-    }
-
     /* Улучшения для очень маленьких экранов */
     @media (max-width: 480px) {
       .goal {
@@ -487,8 +472,7 @@
       <div class="media-loading" id="loading-1">
         <div class="spinner"></div>
       </div>
-      <img class="photo" src="https://neft-ai.surge.sh/1.png" alt="Работник стоит в ковше погрузчика на высоте" loading="lazy"
-        onload="hideLoading('loading-1')" onerror="showFallback('loading-1', 'Ошибка загрузки изображения: Работник в ковше погрузчика')">
+      <img class="photo" data-src="images/1.png" alt="Работник стоит в ковше погрузчика на высоте" loading="lazy">
     </div>
     <div class="tag">Нарушение №1</div>
     <div class="ai-text"
@@ -501,8 +485,7 @@
       <div class="media-loading" id="loading-2">
         <div class="spinner"></div>
       </div>
-      <img class="photo" src="https://neft-ai.surge.sh/2.png" alt="Рабочие выполняют резку металла без средств защиты" loading="lazy"
-        onload="hideLoading('loading-2')" onerror="showFallback('loading-2', 'Ошибка загрузки изображения: Резка металла без СИЗ')">
+      <img class="photo" data-src="images/2.png" alt="Рабочие выполняют резку металла без средств защиты" loading="lazy">
     </div>
     <div class="tag">Нарушение №2</div>
     <div class="ai-text"
@@ -515,8 +498,7 @@
       <div class="media-loading" id="loading-3">
         <div class="spinner"></div>
       </div>
-      <img class="photo" src="https://neft-ai.surge.sh/3.png" alt="Использование пластиковой бутылки вместо защитной маски" loading="lazy"
-        onload="hideLoading('loading-3')" onerror="showFallback('loading-3', 'Ошибка загрузки изображения: Пластиковая бутылка вместо маски')">
+      <img class="photo" data-src="images/3.png" alt="Использование пластиковой бутылки вместо защитной маски" loading="lazy">
     </div>
     <div class="tag">Нарушение №3</div>
     <div class="ai-text"
@@ -529,17 +511,14 @@
       <div class="media-loading" id="loading-video-1">
         <div class="spinner"></div>
       </div>
-      <video class="clip" controls preload="metadata" playsinline
-        onloadstart="hideLoading('loading-video-1')"
-        onerror="showFallback('loading-video-1', 'Ошибка загрузки видео: Падение с высоты')">
-        <source src="https://neft-ai.surge.sh/1.mp4" type="video/mp4">
+      <video class="clip" controls preload="metadata" playsinline data-src="videos/1.mp4">
         Ваш браузер не поддерживает видео тег.
       </video>
     </div>
     <div class="guard">Сначала досмотрите ролик до конца — затем появится описание по словам.</div>
     <div class="tag">Видео — Падение с высоты</div>
     <div class="ai-text gated"
-      data-text="Судя по названию и типовым рискам, ролик демонстрирует ситуацию работы на высоте без достаточных мер защиты: отсутствует страховочная привязь, анкерная линия или корректные ограждения. Частые причины — спешка, неудобные точки крепления, недооценка ветровой нагрузки, скользкая поверхность или перестановка лестницы без трёх точек опоры. Последствия — срыв, удар о конструкцию, травмы головы и позвоночника. Правильно организованные работы включают: систему удержания с сертифицированной привязью, проверенные точки анкерования, ограждения кромок, обучение и тренировки по работе на высоте, наряд-допуск, наблюдающего и план спасения. Любой выход к кромке без СИЗ недопустим.">
+      data-text="Судя по названию и типовым рискам, ролик демонстрирует ситуацию работы на высоте без достаточных мер защиты: отсутствует страховочная привязь, анкерная линия или корректные ограждения. Частые причины — спешка, неудобные точки крепления, недооценка ветровой нагрузки, скользкая поверхность или перестановка лесницы без трёх точек опоры. Последствия — срыв, удар о конструкцию, травмы головы и позвоночника. Правильно организованные работы включают: систему удержания с сертифицированной привязью, проверенные точки анкерования, ограждения кромок, обучение и тренировки по работе на высоте, наряд-допуск, наблюдающего и план спасения. Любой выход к кромке без СИЗ недопустим.">
     </div>
   </section>
 
@@ -548,10 +527,7 @@
       <div class="media-loading" id="loading-video-2">
         <div class="spinner"></div>
       </div>
-      <video class="clip" controls preload="metadata" playsinline
-        onloadstart="hideLoading('loading-video-2')"
-        onerror="showFallback('loading-video-2', 'Ошибка загрузки видео: Падение дерева')">
-        <source src="https://neft-ai.surge.sh/2.mp4" type="video/mp4">
+      <video class="clip" controls preload="metadata" playsinline data-src="videos/2.mp4">
         Ваш браузер не поддерживает видео тег.
       </video>
     </div>
@@ -567,8 +543,7 @@
       <div class="media-loading" id="loading-4">
         <div class="spinner"></div>
       </div>
-      <img class="photo" src="https://neft-ai.surge.sh/4.jpg" alt="Датчик пульса под большим пальцем" loading="lazy"
-        onload="hideLoading('loading-4')" onerror="showFallback('loading-4', 'Ошибка загрузки изображения: БиоМышь')">
+      <img class="photo" data-src="images/4.jpg" alt="Датчик пульса под большим пальцем" loading="lazy">
     </div>
     <div class="tag">БиоМышь — контроль состояния пользователя</div>
     <div class="ai-text"
@@ -584,9 +559,6 @@
   </section>
 
   <button class="to-top" id="toTop">↑</button>
-
-  <!-- Мобильная диагностика -->
-  <div class="mobile-debug" id="mobileDebug"></div>
 
   <!-- ====================== СКРИПТЫ ====================== -->
   <script>
@@ -622,16 +594,14 @@
       const panelObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            // Показываем при входе в зону видимости
             entry.target.classList.add('visible');
           } else {
-            // Скрываем при выходе из зоны видимости (работает в обе стороны)
             entry.target.classList.remove('visible');
           }
         });
       }, { 
-        threshold: 0.15, // Порог срабатывания
-        rootMargin: '-50px 0px -100px 0px' // Отступы для более плавного перехода
+        threshold: 0.15,
+        rootMargin: '-50px 0px -100px 0px'
       });
       
       panels.forEach(p => panelObserver.observe(p));
@@ -652,7 +622,7 @@
         });
       }
 
-      // Improved Text observer for non-gated texts - bidirectional
+      // Improved Text observer for non-gated texts
       const textObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -710,90 +680,144 @@
         toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       }
 
-      // 7) Media error handling functions
-      window.hideLoading = function(elementId) {
-        const loadingElement = document.getElementById(elementId);
-        if (loadingElement) {
-          loadingElement.style.display = 'none';
-        }
-      };
-
-      window.showFallback = function(elementId, message) {
-        const loadingElement = document.getElementById(elementId);
-        if (loadingElement) {
-          loadingElement.innerHTML = `
-            <div class="media-fallback">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
-                <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              <p>${message}</p>
-              <p style="font-size: 0.8em;">Попробуйте обновить страницу или проверьте подключение</p>
-            </div>
-          `;
-          loadingElement.style.position = 'relative';
-        }
-      };
-
-      // 8) Мобильная диагностика
-      function checkMobileFiles() {
-        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-          const debugEl = document.getElementById('mobileDebug');
-          debugEl.style.display = 'block';
-          debugEl.innerHTML = '📱 Проверка файлов...';
-          
-          const files = [
-            'https://neft-ai.surge.sh/1.png',
-            'https://neft-ai.surge.sh/2.png', 
-            'https://neft-ai.surge.sh/3.png',
-            'https://neft-ai.surge.sh/4.jpg',
-            'https://neft-ai.surge.sh/1.mp4',
-            'https://neft-ai.surge.sh/2.mp4'
-          ];
-          
-          let checked = 0;
-          files.forEach(file => {
-            const tester = new Image();
-            if (file.includes('.mp4')) {
-              // Для видео используем fetch
-              fetch(file, { method: 'HEAD' })
-                .then(response => {
-                  checked++;
-                  const status = response.ok ? '✅' : '❌';
-                  debugEl.innerHTML += `<br>${status} ${file.split('/').pop()}`;
-                  if (checked === files.length) showFinalDebug();
-                })
-                .catch(() => {
-                  checked++;
-                  debugEl.innerHTML += `<br>❌ ${file.split('/').pop()} (ошибка)`;
-                  if (checked === files.length) showFinalDebug();
-                });
-            } else {
-              // Для изображений
-              tester.onload = () => {
-                checked++;
-                debugEl.innerHTML += `<br>✅ ${file.split('/').pop()}`;
-                if (checked === files.length) showFinalDebug();
-              };
-              tester.onerror = () => {
-                checked++;
-                debugEl.innerHTML += `<br>❌ ${file.split('/').pop()}`;
-                if (checked === files.length) showFinalDebug();
-              };
-              tester.src = file;
-            }
+      // 7) Улучшенная система загрузки медиа для GitHub Pages
+      const mediaLoaders = {
+        attempts: {},
+        maxAttempts: 3,
+        delay: 1000,
+        
+        init() {
+          this.loadAllMedia();
+        },
+        
+        loadAllMedia() {
+          // Загружаем изображения
+          document.querySelectorAll('img.photo[data-src]').forEach(img => {
+            this.loadImage(img);
           });
+          
+          // Загружаем видео
+          document.querySelectorAll('video.clip[data-src]').forEach(video => {
+            this.loadVideo(video);
+          });
+        },
+        
+        loadImage(img) {
+          const src = img.getAttribute('data-src');
+          const loadingId = img.closest('.media-container').querySelector('.media-loading').id;
+          
+          if (!this.attempts[src]) this.attempts[src] = 0;
+          
+          const attemptLoad = () => {
+            this.attempts[src]++;
+            
+            const tempImg = new Image();
+            tempImg.onload = () => {
+              img.src = src;
+              img.removeAttribute('data-src');
+              this.hideLoading(loadingId);
+            };
+            
+            tempImg.onerror = () => {
+              if (this.attempts[src] < this.maxAttempts) {
+                setTimeout(attemptLoad, this.delay * this.attempts[src]);
+              } else {
+                this.showFallback(loadingId, `Не удалось загрузить изображение`);
+              }
+            };
+            
+            tempImg.src = src;
+          };
+          
+          attemptLoad();
+        },
+        
+        loadVideo(video) {
+          const src = video.getAttribute('data-src');
+          const loadingId = video.closest('.media-container').querySelector('.media-loading').id;
+          
+          if (!this.attempts[src]) this.attempts[src] = 0;
+          
+          const attemptLoad = () => {
+            this.attempts[src]++;
+            
+            const source = document.createElement('source');
+            source.src = src;
+            source.type = 'video/mp4';
+            
+            const tempVideo = document.createElement('video');
+            tempVideo.appendChild(source);
+            tempVideo.preload = 'metadata';
+            
+            tempVideo.onloadeddata = () => {
+              const actualSource = document.createElement('source');
+              actualSource.src = src;
+              actualSource.type = 'video/mp4';
+              
+              video.innerHTML = '';
+              video.appendChild(actualSource);
+              video.removeAttribute('data-src');
+              video.load();
+              this.hideLoading(loadingId);
+            };
+            
+            tempVideo.onerror = () => {
+              if (this.attempts[src] < this.maxAttempts) {
+                setTimeout(attemptLoad, this.delay * this.attempts[src]);
+              } else {
+                this.showFallback(loadingId, `Не удалось загрузить видео`);
+              }
+            };
+            
+            tempVideo.load();
+          };
+          
+          attemptLoad();
+        },
+        
+        hideLoading(elementId) {
+          const loadingElement = document.getElementById(elementId);
+          if (loadingElement) {
+            loadingElement.style.display = 'none';
+          }
+        },
+        
+        showFallback(elementId, message) {
+          const loadingElement = document.getElementById(elementId);
+          if (loadingElement) {
+            loadingElement.innerHTML = `
+              <div class="media-fallback">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none">
+                  <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p>${message}</p>
+                <button onclick="window.mediaLoaders.retryMedia('${elementId}')" style="margin-top: 10px; padding: 8px 16px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer;">Повторить загрузку</button>
+              </div>
+            `;
+            loadingElement.style.position = 'relative';
+          }
+        },
+        
+        retryMedia(loadingId) {
+          const loadingElement = document.getElementById(loadingId);
+          const mediaContainer = loadingElement.closest('.media-container');
+          const img = mediaContainer.querySelector('img[data-src]');
+          const video = mediaContainer.querySelector('video[data-src]');
+          
+          loadingElement.innerHTML = '<div class="spinner"></div>';
+          loadingElement.style.display = 'flex';
+          
+          if (img) {
+            this.loadImage(img);
+          } else if (video) {
+            this.loadVideo(video);
+          }
         }
-      }
-
-      function showFinalDebug() {
-        setTimeout(() => {
-          const debugEl = document.getElementById('mobileDebug');
-          debugEl.innerHTML += '<br><br>🔧 Используйте Netlify для надежного хостинга';
-        }, 1000);
-      }
-
-      // Запускаем диагностику
-      setTimeout(checkMobileFiles, 1000);
+      };
+      
+      // Инициализируем загрузку медиа
+      window.mediaLoaders = mediaLoaders;
+      mediaLoaders.init();
 
       // Автоматически скрываем индикаторы загрузки через 10 секунд на всякий случай
       setTimeout(() => {
