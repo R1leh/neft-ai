@@ -175,6 +175,10 @@
       margin-top: clamp(16px, 3vw, 20px);
     }
 
+    .ai-text.instant {
+      opacity: 1 !important;
+    }
+
     .ai-word {
       opacity: 0;
       display: inline-block;
@@ -197,26 +201,27 @@
       align-items: center;
       background: var(--accent-light);
       border-radius: 16px;
-      min-height: 300px;
+      min-height: 400px;
+      overflow: hidden;
     }
 
+    /* Новое масштабирование для изображений */
     img.photo {
-      width: auto;
-      max-width: 100%;
+      width: 100%;
       height: auto;
-      max-height: min(500px, 60vh);
-      object-fit: contain;
+      max-height: 70vh;
+      object-fit: cover;
       border-radius: 16px;
       border: 4px solid var(--accent);
       display: block;
-      margin: 0 auto;
     }
 
+    /* Новое масштабирование для видео */
     video.clip {
       width: 100%;
-      max-width: 100%;
       height: auto;
-      max-height: min(500px, 60vh);
+      max-height: 70vh;
+      object-fit: cover;
       border-radius: 16px;
       border: 4px solid var(--accent);
       display: block;
@@ -397,6 +402,10 @@
         flex-direction: column;
         gap: 12px;
       }
+      
+      .media-container {
+        min-height: 300px;
+      }
     }
 
     /* Улучшения для очень больших экранов */
@@ -432,7 +441,7 @@
 
   <section class="panel" data-type="text">
     <div class="tag">Вступление</div>
-    <div class="ai-text"
+    <div class="ai-text instant"
       data-text="Современные технологии развиваются стремительно быстро — быстрее, чем любые инновации в истории. И такие разработки, как искусственный интеллект (ИИ), машинное обучение (МО), «умные» средства индивидуальной защиты (СИЗ), устройства дополненной реальности, киберфизические производственные сети, экзоскелеты и другие носимые устройства создают в сфере охраны труда как новые возможности, так и новые вызовы. Мой проект — о том, как ИИ может повысить безопасность работников: контролировать наличие СИЗ и оценивать уровень безопасности действий на опасном производстве.">
     </div>
   </section>
@@ -472,7 +481,7 @@
       <div class="media-loading" id="loading-1">
         <div class="spinner"></div>
       </div>
-      <img class="photo" data-src="images/1.png" alt="Работник стоит в ковше погрузчика на высоте" loading="lazy">
+      <img class="photo" data-src="1.png" alt="Работник стоит в ковше погрузчика на высоте" loading="lazy">
     </div>
     <div class="tag">Нарушение №1</div>
     <div class="ai-text"
@@ -485,7 +494,7 @@
       <div class="media-loading" id="loading-2">
         <div class="spinner"></div>
       </div>
-      <img class="photo" data-src="images/2.png" alt="Рабочие выполняют резку металла без средств защиты" loading="lazy">
+      <img class="photo" data-src="2.png" alt="Рабочие выполняют резку металла без средств защиты" loading="lazy">
     </div>
     <div class="tag">Нарушение №2</div>
     <div class="ai-text"
@@ -498,7 +507,7 @@
       <div class="media-loading" id="loading-3">
         <div class="spinner"></div>
       </div>
-      <img class="photo" data-src="images/3.png" alt="Использование пластиковой бутылки вместо защитной маски" loading="lazy">
+      <img class="photo" data-src="3.png" alt="Использование пластиковой бутылки вместо защитной маски" loading="lazy">
     </div>
     <div class="tag">Нарушение №3</div>
     <div class="ai-text"
@@ -511,14 +520,14 @@
       <div class="media-loading" id="loading-video-1">
         <div class="spinner"></div>
       </div>
-      <video class="clip" controls preload="metadata" playsinline data-src="videos/1.mp4">
+      <video class="clip" controls preload="metadata" playsinline data-src="1.mp4">
         Ваш браузер не поддерживает видео тег.
       </video>
     </div>
     <div class="guard">Сначала досмотрите ролик до конца — затем появится описание по словам.</div>
     <div class="tag">Видео — Падение с высоты</div>
     <div class="ai-text gated"
-      data-text="Судя по названию и типовым рискам, ролик демонстрирует ситуацию работы на высоте без достаточных мер защиты: отсутствует страховочная привязь, анкерная линия или корректные ограждения. Частые причины — спешка, неудобные точки крепления, недооценка ветровой нагрузки, скользкая поверхность или перестановка лесницы без трёх точек опоры. Последствия — срыв, удар о конструкцию, травмы головы и позвоночника. Правильно организованные работы включают: систему удержания с сертифицированной привязью, проверенные точки анкерования, ограждения кромок, обучение и тренировки по работе на высоте, наряд-допуск, наблюдающего и план спасения. Любой выход к кромке без СИЗ недопустим.">
+      data-text="Судя по названию и типовым рискам, ролик демонстрирует ситуацию работы на высоте без достаточных мер защиты: отсутствует страховочная привязь, анкерная линия или корректные ограждения. Частые причины — спешка, неудобные точки крепления, недооценка ветровой нагрузки, скользкая поверхность или перестановка лестницы без трёх точек опоры. Последствия — срыв, удар о конструкцию, травмы головы и позвоночника. Правильно организованные работы включают: систему удержания с сертифицированной привязью, проверенные точки анкерования, ограждения кромок, обучение и тренировки по работе на высоте, наряд-допуск, наблюдающего и план спасения. Любой выход к кромке без СИЗ недопустим.">
     </div>
   </section>
 
@@ -527,7 +536,7 @@
       <div class="media-loading" id="loading-video-2">
         <div class="spinner"></div>
       </div>
-      <video class="clip" controls preload="metadata" playsinline data-src="videos/2.mp4">
+      <video class="clip" controls preload="metadata" playsinline data-src="2.mp4">
         Ваш браузер не поддерживает видео тег.
       </video>
     </div>
@@ -543,7 +552,7 @@
       <div class="media-loading" id="loading-4">
         <div class="spinner"></div>
       </div>
-      <img class="photo" data-src="images/4.jpg" alt="Датчик пульса под большим пальцем" loading="lazy">
+      <img class="photo" data-src="4.jpg" alt="Датчик пульса под большим пальцем" loading="lazy">
     </div>
     <div class="tag">БиоМышь — контроль состояния пользователя</div>
     <div class="ai-text"
@@ -553,7 +562,7 @@
 
   <section class="panel" data-type="text">
     <div class="tag">Заключение</div>
-    <div class="ai-text"
+    <div class="ai-text instant"
       data-text="Исходя из всего выше сказанного, можем сделать вывод, что сегодня интеллектуальные системы выходят за рамки просто «умных» устройств. Они хранят и собирают большие данные, мгновенно их анализируют, самообучаются и адаптируются к новым условиям, а порой работают полностью автономно — без поддержки со стороны человека. Точность нейросетей растёт с огромной скоростью, постепенно вытесняя человеческий труд и привычные алгоритмы решения задач во многих областях. В моем проекте приведены примеры, когда ИИ анализирует моменты, связанные с несоблюдением техники безопасности на том или ином объекте (это и всем известные художественные фильмы, а также ситуации с производства). В ПРИЛОЖЕНИИ 1 представлен QR-код, перейдя по которому Вы можете попасть на мини-сайт моего проекта. Благодаря технологиям ИИ можно значительно сократить количество ошибок, которые допускает человек из-за усталости или невнимательности, можно автоматизировать многие задачи, повышая эффективность рабочего процесса, предоставлять сотрудникам обратную связь в режиме реального времени или вести активное — «умное» — наблюдение за рабочим процессом.">
     </div>
   </section>
@@ -606,7 +615,7 @@
       
       panels.forEach(p => panelObserver.observe(p));
 
-      // 4) Typing animation
+      // 4) Typing animation (только для не-instant текстов)
       const typingDelay = 180;
       function typeWriter(container) {
         if (container.dataset.typed) return;
@@ -622,11 +631,17 @@
         });
       }
 
+      // Instant тексты - сразу показываем
+      document.querySelectorAll('.ai-text.instant').forEach(container => {
+        container.innerHTML = container.dataset.text;
+        container.style.opacity = '1';
+      });
+
       // Improved Text observer for non-gated texts
       const textObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const txt = entry.target.querySelector('.ai-text:not(.gated)');
+            const txt = entry.target.querySelector('.ai-text:not(.gated):not(.instant)');
             if (txt && !txt.dataset.typed) {
               setTimeout(() => typeWriter(txt), 300);
             }
@@ -638,7 +653,7 @@
       });
       
       panels.forEach(p => {
-        const textElement = p.querySelector('.ai-text:not(.gated)');
+        const textElement = p.querySelector('.ai-text:not(.gated):not(.instant)');
         if (textElement) {
           textObserver.observe(p);
         }
@@ -680,7 +695,7 @@
         toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       }
 
-      // 7) Улучшенная система загрузки медиа для GitHub Pages
+      // 7) Улучшенная система загрузки медиа из корневого каталога
       const mediaLoaders = {
         attempts: {},
         maxAttempts: 3,
