@@ -1858,19 +1858,36 @@
     // ОСНОВНЫЕ ФУНКЦИИ
     // ====================================================
     
+    function initDynamicPadding() {
+      const header = document.getElementById('mainHeader');
+      const container = document.querySelector('.container');
+      if (!header || !container) return;
+
+      function update() {
+        const h = header.getBoundingClientRect().height;
+        container.style.paddingTop = (h + 24) + 'px';
+        document.documentElement.style.scrollPaddingTop = (h + 8) + 'px';
+      }
+
+      update();
+      new ResizeObserver(update).observe(header);
+      window.addEventListener('resize', update);
+      document.fonts.ready.then(update);
+    }
+
     function initTitleAnimation() {
       const title = document.getElementById('siteTitle');
       const header = document.getElementById('mainHeader');
-      
+
       if (!title || !header) return;
-      
+
       setTimeout(() => {
         title.classList.add('animated');
       }, 1000);
-      
+
       function handleScroll() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
+
         if (scrollTop > 50) {
           header.classList.add('compact');
           title.classList.add('compact');
@@ -1879,7 +1896,7 @@
           title.classList.remove('compact');
         }
       }
-      
+
       window.addEventListener('scroll', handleScroll);
       handleScroll();
     }
@@ -2028,7 +2045,8 @@
     
     function initApp() {
       console.log('🚀 Инициализация приложения...');
-      
+
+      initDynamicPadding();
       initTitleAnimation();
       initScrollManagement();
       initPanelAnimations();
